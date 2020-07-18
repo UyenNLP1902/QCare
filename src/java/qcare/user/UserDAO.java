@@ -19,6 +19,12 @@ import qcare.util.DBHelper;
  */
 public class UserDAO implements Serializable {
 
+    private final boolean STATUS_ACTIVATE = true;
+    private final boolean STATUS_INACTIVATE = false;
+    private final int ROLE_DOCTOR = 1;
+    private final int ROLE_PATIENT = 2;
+    private final int ROLE_ADMIN = 2;
+
     private Connection con;
     private PreparedStatement stm;
     private ResultSet rs;
@@ -81,7 +87,11 @@ public class UserDAO implements Serializable {
             stm.setInt(5, dto.getRole());
             stm.setBoolean(6, dto.isGender());
             stm.setInt(7, dto.getBirthyear());
-            stm.setBoolean(8, dto.isAccountStatus());
+            if (dto.getRole() != ROLE_PATIENT) {
+                stm.setBoolean(8, STATUS_INACTIVATE);
+            } else {
+                stm.setBoolean(8, STATUS_ACTIVATE);
+            }
             stm.setInt(9, dto.getSpecialist());
 
             check = stm.executeUpdate() > 0;

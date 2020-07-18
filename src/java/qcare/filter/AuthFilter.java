@@ -37,7 +37,7 @@ public class AuthFilter implements Filter {
     private final List<String> guest;
     private final List<String> user;
     private final List<String> admin;
-    private final String ERROR_PAGE = "error.html";
+    private final String ERROR_PAGE = "homepage.jsp";
     private final int ROLE_DOCTOR = 1;
     private final int ROLE_PATIENT = 2;
     private final int ROLE_ADMIN = 2;
@@ -45,6 +45,8 @@ public class AuthFilter implements Filter {
     public AuthFilter() {
         guest = new ArrayList<>();
         guest.add("");
+        guest.add("create");
+        guest.add("create.action");
 
         user = new ArrayList<>();
         user.add("");

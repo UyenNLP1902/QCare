@@ -6,6 +6,9 @@
 package qcare.action;
 
 import javax.naming.NamingException;
+import qcare.user.UserDAO;
+import qcare.user.UserDTO;
+import qcare.util.MyConverter;
 
 /**
  *
@@ -29,28 +32,22 @@ public class CreateAction {
     }
 
     public String execute() throws Exception {
+        String url = FAIL;
         try {
+            UserDTO account = new UserDTO(Username, Password, Name, 
+                    MyConverter.convertStringToInteger(City), MyConverter.convertStringToInteger(Role), 
+                    MyConverter.convertStringToBoolean(Gender), MyConverter.convertStringToInteger(Birthyear),
+                    false, MyConverter.convertStringToInteger(Specialist));
+            UserDAO dao = new UserDAO();
+            boolean check = dao.create(account);
             
-            AccountDTO dto = new AccountDTO(email, password, name, phoneNum, address);
-            AccountDAO dao = new AccountDAO();
-            boolean created = dao.createAccount(dto);
-
-            if (created) {
-                String code = EmailHelper.getRandomActivationCode();
-                ActivationDAO activationDAO = new ActivationDAO();
-                boolean check = activationDAO.insertActivationCode(dto, code);
-
-                if (check) {
-                    EmailHelper eh = new EmailHelper();
-                    eh.setToEmail(dto.getEmail());
-                    eh.sendEmail(code);
-                    url = SUCCESS;
-                }
+            if (check) {
+                url = SUCCESS;
             }
         } catch (NamingException ex) {
             //log.error(ex.getMessage());
         }
-        throw new UnsupportedOperationException("Not supported yet.");
+        return url;
     }
 
     public String getUsername() {

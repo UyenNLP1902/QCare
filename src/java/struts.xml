@@ -9,5 +9,9 @@
         <action name="" class="qcare.action.StartAppAction">
             <result>homepage.jsp</result>
         </action>
+        <action name="create" class="qcare.action.CreateAction">
+            <result>homepage.jsp</result>
+            <result name="fail">create.jsp</result>
+        </action>
     </package>
 </struts>
