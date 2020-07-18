@@ -6,6 +6,10 @@
 package qcare.user;
 
 import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -13,5 +17,22 @@ import java.io.Serializable;
  */
 public class UserDAO implements Serializable {
 
-    
+    private Connection con;
+    private PreparedStatement stm;
+    private ResultSet rs;
+
+    public UserDAO() {
+    }
+
+    private void closeConnection() throws SQLException {
+        if (rs != null) {
+            rs.close();
+        }
+        if (stm != null) {
+            stm.close();
+        }
+        if (con != null) {
+            con.close();
+        }
+    }
 }
