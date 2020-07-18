@@ -6,5 +6,8 @@
     <include file="example.xml"/>
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
+        <action name="" class="qcare.action.StartAppAction">
+            <result>homepage.jsp</result>
+        </action>
     </package>
 </struts>
