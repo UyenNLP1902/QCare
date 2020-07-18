@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.naming.NamingException;
+import qcare.util.DBHelper;
 
 /**
  *
@@ -37,12 +39,12 @@ public class UserDAO implements Serializable {
             rs = stm.executeQuery();
             if (rs.next()) {
                 String name = rs.getNString("Name");
-                int city = rs.getNString("City");
-                String role = rs.getNString("Role");
+                int city = rs.getInt("City");
+                int role = rs.getInt("Role");
                 boolean gender = rs.getBoolean("Gender");
                 int birthyear = rs.getInt("Birthyear");
                 boolean accountStatus = rs.getBoolean("AccountStatus");
-                String specialist = rs.getNString("specialist");
+                int specialist = rs.getInt("specialist");
             }
         } finally {
             closeConnection();
@@ -60,5 +62,33 @@ public class UserDAO implements Serializable {
         if (con != null) {
             con.close();
         }
+    }
+
+    public boolean create(UserDTO dto) throws SQLException, NamingException {
+        boolean check = false;
+
+        try {
+            String sql = "INSERT INTO (Username, Password, Name, City, Role, Gender, "
+                    + "Birthyear, AccountStatus, Specialist) "
+                    + "VALUES (?,?,?,?,?,?,?,?,?)";
+            con = DBHelper.makeConnection();
+            stm = con.prepareStatement(sql);
+            stm.setString(1, dto.getUsername());
+            stm.setString(2, dto.getPassword());
+            stm.setNString(3, dto.getName());
+            stm.setInt(4, dto.getCity());
+            stm.setInt(5, dto.getRole());
+            stm.setBoolean(6, dto.isGender());
+            stm.setInt(7, dto.getBirthyear());
+            stm.setBoolean(8, dto.isAccountStatus());
+            stm.setInt(9, dto.getSpecialist());
+
+            check = stm.executeUpdate() > 0;
+
+        } finally {
+            closeConnection();
+        }
+
+        return check;
     }
 }
