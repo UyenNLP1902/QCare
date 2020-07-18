@@ -40,15 +40,12 @@ public class UserDAO implements Serializable {
             if (rs.next()) {
                 String name = rs.getNString("Name");
                 int city = rs.getInt("City");
-<<<<<<< HEAD
-                String role = rs.getNString("Role");
-=======
                 int role = rs.getInt("Role");
->>>>>>> 38bdee1af2e93edfc26a86861ab4c5142799ed85
                 boolean gender = rs.getBoolean("Gender");
                 int birthyear = rs.getInt("Birthyear");
                 boolean accountStatus = rs.getBoolean("AccountStatus");
                 int specialist = rs.getInt("specialist");
+                result = new UserDTO(Username, Password, name, city, role, gender, birthyear, accountStatus, specialist);
             }
         } finally {
             closeConnection();
