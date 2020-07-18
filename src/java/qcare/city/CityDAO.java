@@ -5,25 +5,28 @@
  */
 package qcare.city;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import javax.naming.NamingException;
+import qcare.util.DBHelper;
 
 /**
  *
  * @author DELL
  */
-public class CityDAO {
+public class CityDAO implements Serializable{
     private Connection con;
     private PreparedStatement stm;
     private ResultSet rs;
     
-    public List<CityDTO> getAll() throws SQLException, SQLException{
+    public List<CityDTO> getAll() throws SQLException, SQLException, NamingException{
         List<CityDTO> result =null;
         try{
-            con = DBH;
+            con = DBHelper.makeConnection();
             String sql = "SELECT Postcode, Name FROM tblCity";
             stm=con.prepareStatement(sql);
             rs=stm.executeQuery();
@@ -31,7 +34,9 @@ public class CityDAO {
                 int code = rs.getInt("Postcode");
                 String name = rs.getNString("Name");
                 CityDTO city = new CityDTO(code, name);
-                result.add(city);
+                if(result==null){
+                    result.add(city);
+                }
             }
         }finally{
             closeConnection();
