@@ -20,8 +20,23 @@ public class CityDAO {
     private PreparedStatement stm;
     private ResultSet rs;
     
-    public List<CityDTO> readAll(){
-        
+    public List<CityDTO> getAll() throws SQLException, SQLException{
+        List<CityDTO> result =null;
+        try{
+            con = DBH;
+            String sql = "SELECT Postcode, Name FROM tblCity";
+            stm=con.prepareStatement(sql);
+            rs=stm.executeQuery();
+            while(rs.next()){
+                int code = rs.getInt("Postcode");
+                String name = rs.getNString("Name");
+                CityDTO city = new CityDTO(code, name);
+                result.add(city);
+            }
+        }finally{
+            closeConnection();
+        }
+        return result;
     }
     private void closeConnection() throws SQLException {
         if (rs != null) {

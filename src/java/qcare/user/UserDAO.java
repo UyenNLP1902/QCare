@@ -37,7 +37,7 @@ public class UserDAO implements Serializable {
             rs = stm.executeQuery();
             if (rs.next()) {
                 String name = rs.getNString("Name");
-                int city = rs.getNString("City");
+                int city = rs.getInt("City");
                 String role = rs.getNString("Role");
                 boolean gender = rs.getBoolean("Gender");
                 int birthyear = rs.getInt("Birthyear");
