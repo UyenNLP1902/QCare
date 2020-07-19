@@ -5,10 +5,12 @@
  */
 package qcare.symptom;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.naming.NamingException;
 import qcare.util.DBHelper;
@@ -17,7 +19,7 @@ import qcare.util.DBHelper;
  *
  * @author DELL
  */
-public class SymptomDAO {
+public class SymptomDAO implements Serializable{
 
     private Connection con;
     private PreparedStatement stm;
@@ -33,6 +35,9 @@ public class SymptomDAO {
             while (rs.next()) {
                 int spec = rs.getInt("Specialist");
                 int symptom = rs.getInt("Symptom");
+                if(result==null){
+                    result=new ArrayList<>();
+                }
                 if (result != null) {
                     result.add(new SymptomDTO(spec, symptom));
                 }
