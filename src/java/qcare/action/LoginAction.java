@@ -19,19 +19,19 @@ import qcare.user.UserDTO;
  * @author DELL
  */
 public class LoginAction {
-    
+
     private String Username;
     private String Password;
-    
-    
-    private final String error = "login.jsp";
-    private final String success = "homepage.jsp";
+
+    private final String FAIL = "fail";
+    private final String SUCCESS = "success";
+
     public LoginAction() {
     }
 
-    @RequiredFieldValidator(type=ValidatorType.FIELD,
+    @RequiredFieldValidator(type = ValidatorType.FIELD,
             message = "Username không thể để trống!")
-    @StringLengthFieldValidator(type=ValidatorType.FIELD,
+    @StringLengthFieldValidator(type = ValidatorType.FIELD,
             maxLength = "50", message = "Username không thể dài quá 50 kí tự")
     public String getUsername() {
         return Username;
@@ -40,7 +40,8 @@ public class LoginAction {
     public void setUsername(String Username) {
         this.Username = Username;
     }
-    @RequiredFieldValidator(type=ValidatorType.FIELD,
+
+    @RequiredFieldValidator(type = ValidatorType.FIELD,
             message = "Password không thể để trống!")
     public String getPassword() {
         return Password;
@@ -49,26 +50,24 @@ public class LoginAction {
     public void setPassword(String Password) {
         this.Password = Password;
     }
-    
-    
+
     public String execute() throws Exception {
-       String url = error;
-       try{
-       UserDAO dao = new UserDAO();
-       UserDTO user = dao.checkLogin(Username, Password);
-       Map session = ActionContext.getContext().getSession();
-       if(user!=null){
-           url=success;
-            session.put("ACCOUT", user);
-       }
-       else{
-           String error="Username và password không đúng";
-           session.put("Login_Error", error);
-       }
-       }catch(SQLException e){
-           
-       }
-       return url;
+        String url = FAIL;
+        try {
+            UserDAO dao = new UserDAO();
+            UserDTO user = dao.checkLogin(Username, Password);
+            Map session = ActionContext.getContext().getSession();
+            if (user != null) {
+                url = SUCCESS;
+                session.put("ACCOUT", user);
+            } else {
+                String error = "Username và password không đúng";
+                session.put("Login_Error", error);
+            }
+        } catch (SQLException e) {
+
+        }
+        return url;
     }
-    
+
 }

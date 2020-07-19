@@ -20,6 +20,6 @@
             <s:submit name="btnAction" label="Submit"/>
         </s:form>
         ${sessionScope.Login_Error}
-        <a href="create.jsp">create user</a>
+        <s:a action="create_page">Create account</s:a>
     </body>
 </html>

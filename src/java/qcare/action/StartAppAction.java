@@ -7,9 +7,10 @@ package qcare.action;
 
 import com.opensymphony.xwork2.ActionContext;
 import java.util.Map;
-import org.apache.struts2.ServletActionContext;
 import qcare.city.CityDAO;
 import qcare.user.UserDAO;
+import qcare.role.RoleDAO;
+import qcare.specialist.SpecialistDAO;
 
 /**
  *
@@ -23,11 +24,12 @@ public class StartAppAction {
     }
 
     public String execute() throws Exception {
-        Map session = ActionContext.getContext().getSession();
-        CityDAO cityDAO = new CityDAO();
-        session.put("CITY_DAO", cityDAO);
-        UserDAO userDao = new UserDAO();
-        session.put("USER_DAO", userDao);
+        Map application = ActionContext.getContext().getApplication();
+        application.put("CITY_DAO", new CityDAO());
+        application.put("USER_DAO", new UserDAO());
+        application.put("ROLE_DAO", new RoleDAO());
+        application.put("SPECIALIST_DAO", new SpecialistDAO());
+
         return success;
     }
 
