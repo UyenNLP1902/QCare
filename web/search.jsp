@@ -28,7 +28,8 @@
 
         <s:if test="list != null">
             <s:iterator value="list">
-
+                <s:property value="ID"/><br>
+                <s:property value="Name"/>
             </s:iterator>
         </s:if>
     </body>
