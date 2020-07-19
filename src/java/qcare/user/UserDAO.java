@@ -32,7 +32,7 @@ public class UserDAO implements Serializable {
     public UserDAO() {
     }
 
-    public UserDTO checkLogin(String Username, String Password) throws SQLException {
+    public UserDTO checkLogin(String Username, String Password) throws SQLException, NamingException {
         UserDTO result = null;
         try {
             con = DBHelper.makeConnection();
