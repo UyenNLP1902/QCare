@@ -5,10 +5,12 @@
  */
 package qcare.role;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.naming.NamingException;
 import qcare.util.DBHelper;
@@ -17,7 +19,7 @@ import qcare.util.DBHelper;
  *
  * @author DELL
  */
-public class RoleDAO {
+public class RoleDAO implements Serializable{
 
     private Connection con;
     private PreparedStatement stm;
@@ -33,6 +35,9 @@ public class RoleDAO {
             while (rs.next()) {
                 int id = rs.getInt("ID");
                 String name = rs.getNString("Name");
+                if(result==null){
+                    result=new ArrayList<>();
+                }
                 if (result != null) {
                     result.add(new RoleDTO(id, name));
                 }
