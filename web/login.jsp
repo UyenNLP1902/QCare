@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="/struts-tags" prefix="s"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,6 +19,7 @@
             <s:password name="Password" label="Password"/>
             <s:submit name="btnAction" label="Submit"/>
         </s:form>
+        ${sessionScope.Login_Error}
         <a href="create.jsp">create user</a>
     </body>
 </html>

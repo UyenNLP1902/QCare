@@ -13,5 +13,9 @@
             <result>homepage.jsp</result>
             <result name="fail">create.jsp</result>
         </action>
+        <action name="login" class="qcare.action.LoginAction">
+            <result>homepage.jsp</result>
+            <result name="error">login.jsp</result>
+        </action>
     </package>
 </struts>
