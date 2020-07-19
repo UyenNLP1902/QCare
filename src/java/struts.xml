@@ -22,12 +22,9 @@
             <result>homepage.jsp</result>
             <result name="fail">create.jsp</result>
         </action>
-<<<<<<< HEAD
         <action name="login" class="qcare.action.LoginAction">
             <result>homepage.jsp</result>
             <result name="error">login.jsp</result>
-=======
->>>>>>> 22ecd6573d6bfd27e8df18c64929163354c3f675
         <action name="LoginAction" class="qcare.action.LoginAction">
             <result>login.jsp</result>
             <result name="fail">homepage.jsp</result>
