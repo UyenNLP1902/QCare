@@ -36,9 +36,9 @@ public class CityDAO implements Serializable {
             stm = con.prepareStatement(sql);
             rs = stm.executeQuery();
             while (rs.next()) {
-                int code = rs.getInt("Postcode");
-                String name = rs.getNString("Name");
-                CityDTO city = new CityDTO(code, name);
+                int Postcode = rs.getInt("Postcode");
+                String Name = rs.getNString("Name");
+                CityDTO city = new CityDTO(Postcode, Name);
                 if (result == null) {
                     result = new ArrayList<>();
                 }

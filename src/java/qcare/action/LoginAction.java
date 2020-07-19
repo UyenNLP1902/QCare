@@ -29,24 +29,24 @@ public class LoginAction {
     public LoginAction() {
     }
 
-    @RequiredFieldValidator(type = ValidatorType.FIELD,
-            message = "Username không thể để trống!")
-    @StringLengthFieldValidator(type = ValidatorType.FIELD,
-            maxLength = "50", message = "Username không thể dài quá 50 kí tự")
     public String getUsername() {
         return Username;
     }
 
+    @RequiredFieldValidator(type = ValidatorType.FIELD,
+            message = "Username không thể để trống!")
+    @StringLengthFieldValidator(type = ValidatorType.FIELD,
+            maxLength = "50", message = "Username không thể dài quá 50 kí tự")
     public void setUsername(String Username) {
         this.Username = Username;
     }
 
-    @RequiredFieldValidator(type = ValidatorType.FIELD,
-            message = "Password không thể để trống!")
     public String getPassword() {
         return Password;
     }
 
+    @RequiredFieldValidator(type = ValidatorType.FIELD,
+            message = "Password không thể để trống!")
     public void setPassword(String Password) {
         this.Password = Password;
     }

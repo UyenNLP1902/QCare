@@ -46,6 +46,7 @@ public class CreateAction {
             }
         } catch (NamingException ex) {
             //log.error(ex.getMessage());
+            ex.printStackTrace();
         }
         return url;
     }
