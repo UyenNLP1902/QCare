@@ -6,6 +6,12 @@
     <include file="example.xml"/>
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
+        <action name="create_page">
+            <result>create.jsp</result>
+        </action>
+        <action name="login_page">
+            <result>login.jsp</result>
+        </action>
         <action name="" class="qcare.action.StartAppAction">
             <result>homepage.jsp</result>
         </action>
@@ -13,9 +19,15 @@
             <result>homepage.jsp</result>
             <result name="fail">create.jsp</result>
         </action>
+<<<<<<< HEAD
         <action name="login" class="qcare.action.LoginAction">
             <result>homepage.jsp</result>
             <result name="error">login.jsp</result>
+=======
+        <action name="LoginAction" class="qcare.action.LoginAction">
+            <result>login.jsp</result>
+            <result name="fail">homepage.jsp</result>
+>>>>>>> 3fed59bb70057592a65157da0b47c81816b5be07
         </action>
     </package>
 </struts>
