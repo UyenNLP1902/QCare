@@ -139,6 +139,8 @@ public class AuthFilter implements Filter {
             int lastIndex = uri.lastIndexOf("/");
             String resources = uri.substring(lastIndex + 1);
             HttpSession session = req.getSession(false);
+            System.out.println(" resources: " + resources);
+
             if (session == null || session.getAttribute("ACCOUNT") == null) {
                 //not login
                 if (guest.contains(resources)) {
@@ -156,10 +158,12 @@ public class AuthFilter implements Filter {
                         && user.contains(resources))) {
                     chain.doFilter(request, response);
                 }
+                System.out.println("role: " + ((UserDTO) session.getAttribute("ACCOUNT")).getRole() + " resources: " + resources);
 
                 RequestDispatcher rd = req.getRequestDispatcher(resources);
                 rd.forward(request, response);
             }
+            System.out.println("role: " + ((UserDTO) session.getAttribute("ACCOUNT")).getRole() + " resources: " + resources);
 
             RequestDispatcher rd = req.getRequestDispatcher(resources);
             rd.forward(request, response);
