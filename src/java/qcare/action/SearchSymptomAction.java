@@ -5,6 +5,8 @@
  */
 package qcare.action;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -25,13 +27,16 @@ public class SearchSymptomAction {
 
     public String execute() throws Exception {
         String url = SUCCESS;
+        StringTokenizer stk = null;
 
+        List<String> searchValues = new ArrayList<>();
+        searchValues.addAll(Arrays.asList(Symptoms));
         if (Other != null) {
-            StringTokenizer stk = new StringTokenizer(Other, ",;.");
-        }
-        
-        
+            stk = new StringTokenizer(Other, ",;.");
+            while (stk.hasMoreElements()) {
 
+            }
+        }
         return url;
     }
 
