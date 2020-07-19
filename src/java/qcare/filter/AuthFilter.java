@@ -53,12 +53,18 @@ public class AuthFilter implements Filter {
         guest.add("create.action");
         guest.add("LoginAction");
         guest.add("LoginAction.action");
+        guest.add("search_symptom");
+        guest.add("search_symptom.action");
 
         user = new ArrayList<>();
         user.add("");
+        user.add("search_symptom");
+        user.add("search_symptom.action");
 
         admin = new ArrayList<>();
         admin.add("");
+        admin.add("search_symptom");
+        admin.add("search_symptom.action");
     }
 
     private void doBeforeProcessing(ServletRequest request, ServletResponse response)

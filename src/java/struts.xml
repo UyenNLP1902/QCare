@@ -26,5 +26,8 @@
             <result>login.jsp</result>
             <result name="fail">homepage.jsp</result>
         </action>
+        <action name="search_symptom" class="qcare.action.SearchSymptomAction">
+            <result>search.jsp</result>
+        </action>
     </package>
 </struts>
