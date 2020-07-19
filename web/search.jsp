@@ -3,7 +3,7 @@
     Created on : Jul 19, 2020, 8:22:30 AM
     Author     : SE140355
 --%>
-
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html>

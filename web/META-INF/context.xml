@@ -3,5 +3,5 @@
     <Resource name="QCareDS" type="javax.sql.DataSource" auth="Container" 
            driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" 
            url="jdbc:sqlserver://localhost:1433;databaseName=QCare" 
-           username="sa" password="SE140355" /> 
+           username="user" password="0123456789101112" /> 
 </Context>
