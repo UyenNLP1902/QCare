@@ -42,7 +42,7 @@
             <br>
             Role: <select name="Role">
                 <c:forEach var="role" items="${roleDao.getAll()}">
-                    <option value="${role.ID}" ${param.Role == role.ID ? 'selected' : ''}>${role.Name}</option>
+                    <option value="${role.ID}" ${param.Role eq role.ID ? 'selected' : ''}>${role.Name}</option>
                 </c:forEach>
             </select> <br>
 
