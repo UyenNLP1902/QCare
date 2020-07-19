@@ -5,6 +5,7 @@
  */
 package qcare.specialist;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,11 +19,14 @@ import qcare.util.DBHelper;
  *
  * @author DELL
  */
-public class SpecialistDAO {
+public class SpecialistDAO implements Serializable {
 
     private Connection con;
     private PreparedStatement stm;
     private ResultSet rs;
+
+    public SpecialistDAO() {
+    }
 
     public List<SpecialistDTO> getAll() throws NamingException, SQLException {
         List<SpecialistDTO> result = null;

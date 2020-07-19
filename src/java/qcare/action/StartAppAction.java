@@ -11,6 +11,7 @@ import qcare.city.CityDAO;
 import qcare.user.UserDAO;
 import qcare.role.RoleDAO;
 import qcare.specialist.SpecialistDAO;
+import qcare.symptom.SymptomDAO;
 
 /**
  *
@@ -29,7 +30,7 @@ public class StartAppAction {
         application.put("USER_DAO", new UserDAO());
         application.put("ROLE_DAO", new RoleDAO());
         application.put("SPECIALIST_DAO", new SpecialistDAO());
-        //application.put("SYMPTOM_DAO", new SymptomDAO());
+        application.put("SYMPTOM_DAO", new SymptomDAO());
 
         return success;
     }

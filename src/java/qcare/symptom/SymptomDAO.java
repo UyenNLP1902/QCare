@@ -25,6 +25,9 @@ public class SymptomDAO implements Serializable {
     private PreparedStatement stm;
     private ResultSet rs;
 
+    public SymptomDAO() {
+    }
+
     public List<SymptomDTO> getAll() throws NamingException, SQLException {
         List<SymptomDTO> result = null;
         try {

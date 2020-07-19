@@ -5,6 +5,7 @@
  */
 package qcare.has;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,11 +19,14 @@ import qcare.util.DBHelper;
  *
  * @author DELL
  */
-public class HasDAO {
+public class HasDAO implements Serializable {
 
     private Connection con;
     private PreparedStatement stm;
     private ResultSet rs;
+
+    public HasDAO() {
+    }
 
     public List<HasDTO> getAll() throws NamingException, SQLException {
         List<HasDTO> result = null;

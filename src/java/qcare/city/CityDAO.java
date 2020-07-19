@@ -25,6 +25,9 @@ public class CityDAO implements Serializable {
     private PreparedStatement stm;
     private ResultSet rs;
 
+    public CityDAO() {
+    }
+
     public List<CityDTO> getAll() throws SQLException, SQLException, NamingException {
         List<CityDTO> result = null;
         try {

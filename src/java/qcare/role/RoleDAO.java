@@ -25,6 +25,9 @@ public class RoleDAO implements Serializable {
     private PreparedStatement stm;
     private ResultSet rs;
 
+    public RoleDAO() {
+    }
+
     public List<RoleDTO> getAll() throws NamingException, SQLException {
         List<RoleDTO> result = null;
         try {

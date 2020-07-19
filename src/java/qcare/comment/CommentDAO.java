@@ -25,6 +25,9 @@ public class CommentDAO implements Serializable {
     private PreparedStatement stm;
     private ResultSet rs;
 
+    public CommentDAO() {
+    }
+
     public List<CommentDTO> getAll() throws NamingException, SQLException {
         List<CommentDTO> result = null;
         try {

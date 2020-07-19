@@ -25,6 +25,9 @@ public class ForumDAO implements Serializable {
     private PreparedStatement stm;
     private ResultSet rs;
 
+    public ForumDAO() {
+    }
+
     public List<ForumDTO> getAll() throws SQLException, NamingException {
         List<ForumDTO> result = null;
         try {
