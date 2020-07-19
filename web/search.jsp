@@ -19,10 +19,17 @@
             <b>Symptoms:</b><br>
 
             <s:iterator value="#symptomDao.getAll()" begin="1" end="5">
-                <input type="checkbox" name="Symptom" value="id" /> <s:property value="Description"/> <br>
+                <input type="checkbox" name="Symptoms" value="id" /> <s:property value="Description"/> <br>
             </s:iterator>
             <s:textfield name="Other" label="Other symptoms"/>
+            <s:hidden name="currentPage" value="1"/>
             <s:submit value="Search"/>
         </s:form>
+
+        <s:if test="list != null">
+            <s:iterator value="list">
+
+            </s:iterator>
+        </s:if>
     </body>
 </html>
