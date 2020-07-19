@@ -5,11 +5,13 @@
  */
 package qcare.symptom;
 
+import java.io.Serializable;
+
 /**
  *
  * @author DELL
  */
-public class SymptomDTO {
+public class SymptomDTO implements Serializable{
     private int Specialist;
     private int Symptom;
 

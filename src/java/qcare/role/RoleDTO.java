@@ -5,11 +5,13 @@
  */
 package qcare.role;
 
+import java.io.Serializable;
+
 /**
  *
  * @author DELL
  */
-public class RoleDTO {
+public class RoleDTO implements Serializable{
     private int ID;
     private String Name;
 

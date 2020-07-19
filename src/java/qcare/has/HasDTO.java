@@ -5,11 +5,13 @@
  */
 package qcare.has;
 
+import java.io.Serializable;
+
 /**
  *
  * @author DELL
  */
-public class HasDTO {
+public class HasDTO implements Serializable{
     private int Clinic;
     private int Specialist;
 

@@ -5,13 +5,14 @@
  */
 package qcare.clinic;
 
+import java.io.Serializable;
 import java.sql.Time;
 
 /**
  *
  * @author DELL
  */
-public class ClinicDTO {
+public class ClinicDTO implements Serializable{
     private int ID;
     private String Name;
     private String Address;

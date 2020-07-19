@@ -5,11 +5,13 @@
  */
 package qcare.forum;
 
+import java.io.Serializable;
+
 /**
  *
  * @author DELL
  */
-public class ForumDTO {
+public class ForumDTO implements Serializable{
     private String Doctor;
     private int Comment;
 

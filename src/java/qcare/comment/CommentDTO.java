@@ -5,11 +5,13 @@
  */
 package qcare.comment;
 
+import java.io.Serializable;
+
 /**
  *
  * @author DELL
  */
-public class CommentDTO {
+public class CommentDTO implements Serializable{
     private int ID;
     private String MsgContent;
     private int PreviousID;
