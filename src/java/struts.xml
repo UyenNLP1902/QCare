@@ -9,6 +9,9 @@
         <action name="create_page">
             <result>create.jsp</result>
         </action>
+        <action name="login_page">
+            <result>login.jsp</result>
+        </action>
         <action name="" class="qcare.action.StartAppAction">
             <result>homepage.jsp</result>
         </action>

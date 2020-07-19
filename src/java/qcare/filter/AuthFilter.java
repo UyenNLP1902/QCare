@@ -45,6 +45,8 @@ public class AuthFilter implements Filter {
     public AuthFilter() {
         guest = new ArrayList<>();
         guest.add("");
+        guest.add("login_page");
+        guest.add("login_page.ation");
         guest.add("create_page");
         guest.add("create_page.action");
         guest.add("create");
@@ -154,7 +156,7 @@ public class AuthFilter implements Filter {
             RequestDispatcher rd = req.getRequestDispatcher(resources);
             rd.forward(request, response);
         } catch (Throwable t) {
-            
+
         }
     }
 
