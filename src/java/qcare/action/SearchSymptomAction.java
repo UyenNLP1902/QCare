@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.StringTokenizer;
 import qcare.clinic.ClinicDAO;
 import qcare.clinic.ClinicDTO;
-import qcare.symptom.SymptomDAO;
 
 /**
  *

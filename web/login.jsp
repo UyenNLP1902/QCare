@@ -20,7 +20,8 @@
             <s:password name="Password" label="Password"/>
             <s:submit name="btnAction" label="Submit"/>
         </s:form>
-        
+        <s:property value = "#session.Login_Error"/>
+        <br>
         <s:a action="create_page">Create account</s:a>
     </body>
 </html>

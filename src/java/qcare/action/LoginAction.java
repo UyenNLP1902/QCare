@@ -50,7 +50,7 @@ public class LoginAction {
     public void setPassword(String Password) {
         this.Password = Password;
     }
-
+    
     public String execute() throws Exception {
         String url = FAIL;
         try {
@@ -59,7 +59,7 @@ public class LoginAction {
             Map session = ActionContext.getContext().getSession();
             if (user != null) {
                 url = SUCCESS;
-                session.put("ACCOUT", user);
+                session.put("ACCOUNT", user);
             } else {
                 String error = "Username và password không đúng";
                 session.put("Login_Error", error);

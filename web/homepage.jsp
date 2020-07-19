@@ -13,10 +13,10 @@
         <title>Home page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <a href="login.jsp">Login</a>
-        <s:a action="login_page">Login</s:a>
-        <s:a action="create_page">Create account</s:a>
-        
+        <h1>Hello</h1>
+        <s:a action="Login_PageAction">Login</s:a>
+        <s:a action="create_page">Create account</s:a><br>
+        If you feeling unwell! 
+        <s:a action="Search_PageAction">Search symptom</s:a>
     </body>
 </html>
