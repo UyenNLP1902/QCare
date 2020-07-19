@@ -14,6 +14,7 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        <a href="login.jsp">Login</a>
         <s:a action="login_page">Login</s:a>
         <s:a action="create_page">Create account</s:a>
         
