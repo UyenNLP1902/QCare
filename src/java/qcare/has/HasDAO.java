@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.naming.NamingException;
 import qcare.util.DBHelper;
@@ -33,9 +34,10 @@ public class HasDAO {
             while (rs.next()) {
                 int clinic = rs.getInt("Clinic");
                 int spec = rs.getInt("Specialist");
-                if (result != null) {
-                    result.add(new HasDTO(clinic, spec));
+                if (result == null) {
+                    result = new ArrayList<>();
                 }
+                result.add(new HasDTO(clinic, spec));
             }
         } finally {
             closeConnection();

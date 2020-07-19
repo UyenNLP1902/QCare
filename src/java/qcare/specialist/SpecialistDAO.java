@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.naming.NamingException;
 import qcare.util.DBHelper;
@@ -18,6 +19,7 @@ import qcare.util.DBHelper;
  * @author DELL
  */
 public class SpecialistDAO {
+
     private Connection con;
     private PreparedStatement stm;
     private ResultSet rs;
@@ -32,9 +34,11 @@ public class SpecialistDAO {
             while (rs.next()) {
                 int id = rs.getInt("ID");
                 String name = rs.getNString("Name");
-                if (result != null) {
-                    result.add(new SpecialistDTO(id, name));
+                if (result == null) {
+                    result = new ArrayList<>();
                 }
+                result.add(new SpecialistDTO(id, name));
+
             }
         } finally {
             closeConnection();

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package qcare.symptom;
+package qcare.forum;
 
 import java.io.Serializable;
 import java.sql.Connection;
@@ -19,26 +19,26 @@ import qcare.util.DBHelper;
  *
  * @author DELL
  */
-public class SymptomDAO implements Serializable {
+public class ForumDAO implements Serializable {
 
     private Connection con;
     private PreparedStatement stm;
     private ResultSet rs;
 
-    public List<SymptomDTO> getAll() throws NamingException, SQLException {
-        List<SymptomDTO> result = null;
+    public List<ForumDTO> getAll() throws SQLException, NamingException {
+        List<ForumDTO> result = null;
         try {
             con = DBHelper.makeConnection();
-            String sql = "SELECT Specialist, Symptom FROM tblSymptom";
+            String sql = "SELECT * FROM tblForum";
             stm = con.prepareStatement(sql);
             rs = stm.executeQuery();
             while (rs.next()) {
-                int spec = rs.getInt("Specialist");
-                int symptom = rs.getInt("Symptom");
+                String doctor = rs.getString("Doctor");
+                int comment = rs.getInt("Comment");
                 if (result == null) {
                     result = new ArrayList<>();
                 }
-                result.add(new SymptomDTO(spec, symptom));
+                result.add(new ForumDTO(doctor, comment));
             }
         } finally {
             closeConnection();

@@ -19,7 +19,7 @@ import qcare.util.DBHelper;
  *
  * @author DELL
  */
-public class RoleDAO implements Serializable{
+public class RoleDAO implements Serializable {
 
     private Connection con;
     private PreparedStatement stm;
@@ -35,12 +35,10 @@ public class RoleDAO implements Serializable{
             while (rs.next()) {
                 int id = rs.getInt("ID");
                 String name = rs.getNString("Name");
-                if(result==null){
-                    result=new ArrayList<>();
+                if (result == null) {
+                    result = new ArrayList<>();
                 }
-                if (result != null) {
-                    result.add(new RoleDTO(id, name));
-                }
+                result.add(new RoleDTO(id, name));
             }
         } finally {
             closeConnection();
