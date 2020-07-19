@@ -51,6 +51,8 @@ public class AuthFilter implements Filter {
         guest.add("create_page.action");
         guest.add("create");
         guest.add("create.action");
+        guest.add("LoginAction");
+        guest.add("LoginAction.action");
 
         user = new ArrayList<>();
         user.add("");
