@@ -35,7 +35,7 @@ public class UserDAO implements Serializable {
     public UserDTO checkLogin(String Username, String Password) throws SQLException {
         UserDTO result = null;
         try {
-            //con = getConnection();
+            con = DBHelper.makeConnection();
             String sql = "SELECT Name, City, Role, Gender, Birthyear, "
                     + "AccountStatus, Specialist FROM tblUser WHERE "
                     + "Username = ? AND Password = ?";

@@ -17,7 +17,7 @@ import qcare.user.UserDAO;
  */
 public class StartAppAction {
 
-    private final String success = "successs";
+    private final String success = "success";
 
     public StartAppAction() {
     }
